@@ -1,0 +1,268 @@
+[
+    {
+        "name": "Middle Java Developer",
+        "url": "https://hh.ru/vacancy/88474606",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт промышленной разработки на <highlighttext>Java</highlighttext> от 2-х лет. Уверенное владение Spring. Умение работать с базами данных (Oracle, PostgreSQL). ",
+        "employer_id": "872178"
+    },
+    {
+        "name": "Java-разработчик",
+        "url": "https://hh.ru/vacancy/110953994",
+        "salary": "Зарплата не указана",
+        "requirement": "<highlighttext>Java</highlighttext> 8, <highlighttext>Java</highlighttext> 17, Spring boot, <highlighttext>Java</highlighttext> EE, JSF, REST, MariaDB, MySQL, Git.",
+        "employer_id": "2854137"
+    },
+    {
+        "name": "Python developer",
+        "url": "https://hh.ru/vacancy/111041609",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт работы с одним или более фреймворком: Django, Flask, Aiohttp. Базовые знания реляционных баз данных и SQL. Понимание REST, HTTP...",
+        "employer_id": null
+    },
+    {
+        "name": "Frontend-разработчик React (Middle)",
+        "url": "https://hh.ru/vacancy/108630492",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт работы с CSS-IN-JS и формами. Опыт оптимизации и дебаггинга фронтенд приложений. Хороший опыт верстки по дизайнерским макетам...",
+        "employer_id": "1035255"
+    },
+    {
+        "name": "Java-разработчик (backend)",
+        "url": "https://hh.ru/vacancy/110978786",
+        "salary": "Зарплата не указана",
+        "requirement": "Уверенное владение <highlighttext>Java</highlighttext> 11+ (лямбда-выражения, потоки, параллелизм). Глубокое знание Spring Boot (REST API, Spring Data, Spring Security). ",
+        "employer_id": "11367797"
+    },
+    {
+        "name": "Разработчик Python",
+        "url": "https://hh.ru/vacancy/111083851",
+        "salary": "Зарплата от 100000 до Верхний предел не указан RUR",
+        "requirement": "Знание микросервисной архитектуры. Отличное знание <highlighttext>Python</highlighttext> 3. Опыт использования FastAPI и SQLAlchemy >= 2.0. Знание SQL (PostgreSQL,ClickHouse ), опыт в...",
+        "employer_id": null
+    },
+    {
+        "name": "QA-инженер (Manual)",
+        "url": "https://hh.ru/vacancy/110619406",
+        "salary": "Зарплата не указана",
+        "requirement": "Базовые знания SQL (у нас PostgreSQL). Базовые знания любого языка программирования (у нас C#, <highlighttext>Java</highlighttext>). Опыт написания автотестов. ",
+        "employer_id": "10288002"
+    },
+    {
+        "name": "Разработчик Django / Python",
+        "url": "https://hh.ru/vacancy/110411464",
+        "salary": "Зарплата от 450 до 700 USD",
+        "requirement": "Опыт разработки на <highlighttext>Python</highlighttext> и Django от 2 лет. Понимание принципов ООП и опыт применения их в реальных проектах. ",
+        "employer_id": null
+    },
+    {
+        "name": "QA Manual Engineer",
+        "url": "https://hh.ru/vacancy/109214075",
+        "salary": "Зарплата не указана",
+        "requirement": "...хотя бы одного языка программирования. Работа с Docker. Опыт автоматизации процесса тестирования. Знание основ <highlighttext>Java</highlighttext>. Опыт работы с платежными системами.",
+        "employer_id": "3649870"
+    },
+    {
+        "name": "Junior Python Developer",
+        "url": "https://hh.ru/vacancy/110412718",
+        "salary": "Зарплата от 65000 до Верхний предел не указан RUR",
+        "requirement": "Базовые знания <highlighttext>Python</highlighttext>. Опыт написания REST приложений на любом <highlighttext>Python</highlighttext> фреймворке (Flask, FastAPI, Django и др.). Понимание основ SQL и...",
+        "employer_id": null
+    },
+    {
+        "name": "QA Engineer / Тестировщик ПО",
+        "url": "https://hh.ru/vacancy/110796947",
+        "salary": "Зарплата от 80000 до Верхний предел не указан RUR",
+        "requirement": "Иметь опыт работы с графическими приложениями для макетов и прототипов. Знание основ Java, <highlighttext>Python</highlighttext> и опыт написания автотестов. ",
+        "employer_id": null
+    },
+    {
+        "name": "Java Developer - Middle",
+        "url": "https://hh.ru/vacancy/111022936",
+        "salary": "Зарплата от 12000000 до Верхний предел не указан UZS",
+        "requirement": "At least 2 years of professional experience in <highlighttext>Java</highlighttext> development with strong knowledge of object-oriented principles. Proficiency in <highlighttext>Java</highlighttext>...",
+        "employer_id": "11134730"
+    },
+    {
+        "name": "Программист (Backend Developer)",
+        "url": "https://hh.ru/vacancy/110678837",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт работы с языками программирования (например, <highlighttext>Python</highlighttext>, Java, C#, Node.js). Знание фреймворков (например, Django, Spring, Express). Опыт работы с реляционными...",
+        "employer_id": null
+    },
+    {
+        "name": "C++ developer to Berlin",
+        "url": "https://hh.ru/vacancy/110048386",
+        "salary": "Зарплата от 7500 до 10834 EUR",
+        "requirement": "A wide array of extremely challenging C++ development tasks. An international team of brilliant minds. Here are some highlights of...",
+        "employer_id": null
+    },
+    {
+        "name": "Java-разработчик (Junior / Intern)",
+        "url": "https://hh.ru/vacancy/110444392",
+        "salary": "Зарплата от не указано до 60000 RUR",
+        "requirement": "Понимание принципов ООП, понимание алгоритмов и структур данных, знание <highlighttext>Java</highlighttext> Core. Обязательное знание основ <highlighttext>Java</highlighttext> EE (Servlets, jsp). ",
+        "employer_id": "10318135"
+    },
+    {
+        "name": "Junior Java разработчик",
+        "url": "https://hh.ru/vacancy/109478885",
+        "salary": "Зарплата от 80000 до Верхний предел не указан RUR",
+        "requirement": "Уверенное знание <highlighttext>java</highlighttext>. Понимание основ работы web-приложения. Понимание основ алгоритмизации. Опыт работы с NoSQL хранилищами. Знакомство с Spring (Core...",
+        "employer_id": "3011723"
+    },
+    {
+        "name": "Инженер по математическому моделированию",
+        "url": "https://hh.ru/vacancy/111076413",
+        "salary": "Зарплата от не указано до 350000 RUR",
+        "requirement": "Владение навыками программирования (<highlighttext>Python</highlighttext>, C++). Знание теории вероятностей, математической статистики и математического анализа. Навыки планирования и организации рабочего процесса. ",
+        "employer_id": null
+    },
+    {
+        "name": "QA engineer (manual)",
+        "url": "https://hh.ru/vacancy/110645351",
+        "salary": "Зарплата от не указано до 140000 RUR",
+        "requirement": "Ведение тестовой документации и написание тест-кейсов. Более 2 лет опыта ручного тестирования. Понимание жизненного цикла программного обеспечения. ",
+        "employer_id": null
+    },
+    {
+        "name": "Intern Data Analyst / Стажер - аналитик данных",
+        "url": "https://hh.ru/vacancy/110286826",
+        "salary": "Зарплата от 100000 до Верхний предел не указан RUR",
+        "requirement": "Previous experience with some of the following tools would be considered an advantage: scientific or statistical computing (<highlighttext>Python</highlighttext>, R), SQL...",
+        "employer_id": null
+    },
+    {
+        "name": "Сетевой инженер",
+        "url": "https://hh.ru/vacancy/110737918",
+        "salary": "Зарплата от 400000 до Верхний предел не указан KZT",
+        "requirement": "Знание локальных сетей. Знание ОС linux. Навыки программирования(php/<highlighttext>python</highlighttext>/bash). Навыки работы с базами данных(mysql/sqlite). ",
+        "employer_id": null
+    },
+    {
+        "name": "Начинающий (Junior) Программист/Стажер",
+        "url": "https://hh.ru/vacancy/110365805",
+        "salary": "Зарплата от 40000 до 40000 RUR",
+        "requirement": "Базовые знания одного из языков программирования. Приветствуются знания С++, <highlighttext>Java</highlighttext>, QT, С#, SQL. Желание обучаться. Знание алгоритмов и структур данных.",
+        "employer_id": "4211417"
+    },
+    {
+        "name": "Аналитик / помощник аналитика (можно удаленно)",
+        "url": "https://hh.ru/vacancy/111154749",
+        "salary": "Зарплата не указана",
+        "requirement": "В поиске аналитика / помощника аналитика. Желательно с опытом в области аналитики маркетинга, трафика, отделов продаж, моб.приложений или сайтов. ",
+        "employer_id": null
+    },
+    {
+        "name": "QA engineer",
+        "url": "https://hh.ru/vacancy/110760660",
+        "salary": "Зарплата от 150000 до 230000 RUR",
+        "requirement": "Коммерческий опыт в роли тестировщика от 1 года. Знание <highlighttext>Python</highlighttext> для написания тестовых скриптов. Знание Linux на уровне пользователя, умение...",
+        "employer_id": null
+    },
+    {
+        "name": "Junior Java developer",
+        "url": "https://hh.ru/vacancy/110970217",
+        "salary": "Зарплата от 80000 до Верхний предел не указан RUR",
+        "requirement": "Хорошее знание <highlighttext>Java</highlighttext> 8 и выше, ООП. Базовые знания Spring Boot, Spring Cloud. Опыт работы с инструментами Gradle, Git. ",
+        "employer_id": "116803"
+    },
+    {
+        "name": "Разработчик Python",
+        "url": "https://hh.ru/vacancy/110893077",
+        "salary": "Зарплата не указана",
+        "requirement": "...на <highlighttext>Python</highlighttext>. Понимание принципов микросервисной архитектуры. Уверенные знания <highlighttext>Python</highlighttext> версий 3.9+. Глубокое понимание работы асинхронности в <highlighttext>Python</highlighttext> и...",
+        "employer_id": null
+    },
+    {
+        "name": "Frontend-разработчик",
+        "url": "https://hh.ru/vacancy/111112280",
+        "salary": "Зарплата от 2700 до 4500 BYR",
+        "requirement": "Умение разбираться и поддерживать чужой код. Знания по <highlighttext>Java</highlighttext>, Sql будут плюсом. Обязательно. Уверенные знания в React, JavaScript, HTML5...",
+        "employer_id": "4083810"
+    },
+    {
+        "name": "Python-разработчик (Junior - Middle)",
+        "url": "https://hh.ru/vacancy/110423905",
+        "salary": "Зарплата от 70000 до Верхний предел не указан RUR",
+        "requirement": "Рython3+. Django 2+, опыт работы от 1 года. Django REST Framework. MySQL. MariaDB. Умение работать с git. ",
+        "employer_id": null
+    },
+    {
+        "name": "IT Intern (Developer)",
+        "url": "https://hh.ru/vacancy/110889860",
+        "salary": "Зарплата не указана",
+        "requirement": "AWS, GCP).​​​​​​Optional skills: Knowledge of <highlighttext>Java</highlighttext>, Spring Boot, Angular frameworks is very welcome. Good knowledge of REST API, experience...",
+        "employer_id": "3627283"
+    },
+    {
+        "name": "Стажер-аналитик",
+        "url": "https://hh.ru/vacancy/110798566",
+        "salary": "Зарплата не указана",
+        "requirement": "Базовые знания <highlighttext>Python</highlighttext>. Знание SQL, возможность писать запросы к базе данных. MS Excel. Аналитические способности, умение строить причинно-следственные связи...",
+        "employer_id": null
+    },
+    {
+        "name": "Тестировщик / QA Engineer",
+        "url": "https://hh.ru/vacancy/110849809",
+        "salary": "Зарплата не указана",
+        "requirement": "Владение инструментами тестирования - Postman|Insomnia|Swagger, Allure, Moon. Знание <highlighttext>java</highlighttext>. Знание SQL и навык построения запросов. Опыт работы с инструментами...",
+        "employer_id": "24209"
+    },
+    {
+        "name": "Junior Python Developer",
+        "url": "https://hh.ru/vacancy/110711272",
+        "salary": "Зарплата не указана",
+        "requirement": "Basic knowledge of <highlighttext>Python</highlighttext> or 1 year in a role focused on <highlighttext>Python</highlighttext> backend development (perfectly with Django framework). ",
+        "employer_id": null
+    },
+    {
+        "name": "Frontend developer",
+        "url": "https://hh.ru/vacancy/111038649",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт настройки CI/CD. Опыт работы Linux. Опыт коммерческой разработки на PHP (Symfony, Laravel), <highlighttext>Python</highlighttext>. Опыт оптимизации и масштабирования приложений.",
+        "employer_id": null
+    },
+    {
+        "name": "Python-разработчик",
+        "url": "https://hh.ru/vacancy/111157153",
+        "salary": "Зарплата от 50000 до Верхний предел не указан RUR",
+        "requirement": "Опыт работы с <highlighttext>Python</highlighttext> не менее 1 года + опыт разработки бэкенд-приложений. Уверенное знание библиотек для работы с видео...",
+        "employer_id": null
+    },
+    {
+        "name": "Middle Frontend Developer",
+        "url": "https://hh.ru/vacancy/110866511",
+        "salary": "Зарплата не указана",
+        "requirement": "Коммерческий опыт разработки на <highlighttext>Java</highlighttext> Script/React от 2 лет. Знания и опыт в верстке HTML/CSS /SCSS. ",
+        "employer_id": "756093"
+    },
+    {
+        "name": "Java Developer",
+        "url": "https://hh.ru/vacancy/108585853",
+        "salary": "Зарплата не указана",
+        "requirement": "Имеешь опыт продуктовой разработки от 5 лет. Обладаешь отличными знаниями Core <highlighttext>Java</highlighttext> и опытом работы со стеком Spring, в том...",
+        "employer_id": "3646686"
+    },
+    {
+        "name": "UI/UX Тестировщик / Manual QA",
+        "url": "https://hh.ru/vacancy/108413607",
+        "salary": "Зарплата не указана",
+        "requirement": "Внимательность к деталям. Опыт тестирования UI/UX. Понимание процессов разработки и тестирования ПО. Умение анализировать полученные результаты, обнаруживать ошибки, составлять...",
+        "employer_id": "6016502"
+    },
+    {
+        "name": "Junior Backend разработчик",
+        "url": "https://hh.ru/vacancy/109548398",
+        "salary": "Зарплата не указана",
+        "requirement": "Знание PHP версии 8.0 и выше. Знание <highlighttext>Python</highlighttext>. Опыт работы с PHP MVC фреймворков (Symfony или Laravel). ",
+        "employer_id": null
+    },
+    {
+        "name": "Middle Java Developer",
+        "url": "https://hh.ru/vacancy/109258594",
+        "salary": "Зарплата от не указано до 250000 RUR",
+        "requirement": "Минимум 3 года опыта в разработке программного обеспечения на <highlighttext>Java</highlighttext>. Уверенные знания <highlighttext>Java</highlighttext> SE и опыт работы с <highlighttext>Java</highlighttext> EE. ",
+        "employer_id": "11550231"
+    }
+]
