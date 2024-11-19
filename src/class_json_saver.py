@@ -37,7 +37,13 @@ class JsonSaver(FileMethods):
     def __save_vacancy(self, vacancies):
         """Преобразуем вакансии в список словарей для сохранения в JSON"""
         data = [
-            {"name": vac.name, "url": vac.url, "salary": vac.salary, "requirement": vac.requirement, "employer_id": vac.employer_id}
+            {
+                "name": vac.name,
+                "url": vac.url,
+                "salary": vac.salary,
+                "requirement": vac.requirement,
+                "employer_id": vac.employer_id,
+            }
             for vac in vacancies
         ]
         return data
@@ -61,7 +67,13 @@ class JsonSaver(FileMethods):
             vacancies_in_file = json.load(file)  # Получаем вакансии из JSON файла
 
         vacancies_set = {
-            Vacancies(vac.get("name"), vac.get("url"), vac.get("salary"), vac.get("requirement"), vac.get("employer",{}).get("id"))
+            Vacancies(
+                vac.get("name"),
+                vac.get("url"),
+                vac.get("salary"),
+                vac.get("requirement"),
+                vac.get("employer", {}).get("id"),
+            )
             for vac in vacancies_in_file  # Преобразуем данные в множество объектов класса Vacancies
         }
 

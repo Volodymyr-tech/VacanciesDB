@@ -30,7 +30,7 @@ class HH(Parser):
             2705050,
             4934,
             3530,
-            4767781
+            4767781,
         )
 
     def __api_connection(self):
@@ -76,7 +76,7 @@ class HH(Parser):
                     "site_url": employer_data.get("site_url"),
                     "alternate_url": employer_data.get("alternate_url"),
                     "open_vacancies": employer_data.get("open_vacancies"),
-                    "address": employer_data.get("area", {}).get("name")
+                    "address": employer_data.get("area", {}).get("name"),
                 }
                 employers_info.append(filtered_data)
 
@@ -93,7 +93,7 @@ class HH(Parser):
                 response = requests.get(
                     self.__url,
                     headers=self.__headers,
-                    params={"employer_id": employer_id, **self.__params}
+                    params={"employer_id": employer_id, "only_with_salary": True, **self.__params},
                 )
                 response.raise_for_status()
                 vacancies = response.json().get("items", [])
@@ -108,20 +108,19 @@ class HH(Parser):
         return self.__vacancies
 
 
-
 if __name__ == "__main__":
     hh = HH()
     # Загружаем вакансии по ключевому слову
-    #hh.load_vacancies("Python")
-    #print(f"Найдено вакансий: {len(hh.get_vacancies)}")
+    # hh.load_vacancies("Python")
+    # print(f"Найдено вакансий: {len(hh.get_vacancies)}")
 
     # Загружаем информацию о работодателях
-    #employees = hh.get_employees()
-    #for i in employees:
-      #  print(i)
+    employees = hh.get_employees()
+    for i in employees:
+        print(i)
 
     # Загружаем вакансии по работодателям
-    employee_vacancies = hh.load_employees_vacancies()
-    print(f"Найдено вакансий у работодателей: {len(employee_vacancies)}")
-    for i in employee_vacancies:
-        print(i)
+# employee_vacancies = hh.load_employees_vacancies()
+# print(f"Найдено вакансий у работодателей: {len(employee_vacancies)}")
+# for i in employee_vacancies:
+#  print(i)

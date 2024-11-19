@@ -38,15 +38,15 @@ class Vacancies:
                     else "Зарплата не указана"
                 ),
                 requirement=vac.get("snippet", {}).get("requirement", "нет описания"),
-                employer_id=vac["employer"]["id"]
+                employer_id=vac["employer"]["id"],
             )
             for vac in vacancies
         ]
 
         return vacancies_list  # Преобразовывем список словарей в список объектов класса Вакансия
 
-    #def __validation(self):
-     #    pass
+    # def __validation(self):
+    #    pass
 
     def __str__(self):
         return f"{self.name} средняя зарплата:{self.average_salary()},ссылка: {self.url}"
