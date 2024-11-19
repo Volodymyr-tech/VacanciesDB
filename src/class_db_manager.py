@@ -1,10 +1,5 @@
 import os
 from typing import Any
-
-from mypy.metastore import connect_db
-from psycopg2 import connect
-
-from class_api import HH
 import psycopg2
 from dotenv import load_dotenv
 
@@ -158,7 +153,7 @@ class DBManager:
 
         with conn.cursor() as cur:
             # Выполнение SQL-запроса для получения всех работодателей
-            cur.execute("SELECT employer_id, open_vacancies FROM employers;")
+            cur.execute("SELECT employer_name, open_vacancies FROM employers;")
             # Извлечение всех строк
             results = cur.fetchall()
             return results #список кортежей информации о компаниях
@@ -270,24 +265,24 @@ class DBManager:
                 conn.close()
 
 
-if __name__ == "__main__":
-    db = DBManager()
-    hh = HH()
-    db._connect_to_database()
-    db._create_database("test")
+#if __name__ == "__main__":
+   # db = DBManager()
+   # hh = HH()
+   # db._connect_to_database()
+  #  db._create_database("test")
     # Загружаем информацию о работодателях
-    employees = hh.get_employees()
+  #  employees = hh.get_employees()
 
     # Загружаем вакансии по работодателям
-    employee_vacancies = hh.load_employees_vacancies()
+  #  employee_vacancies = hh.load_employees_vacancies()
 
-    db.save_data_to_database(employees, employee_vacancies, "test")
+  #  db.save_data_to_database(employees, employee_vacancies, "test")
 
-    print(db.get_companies("test"))
-    print(db.get_all_vacancies("test"))
-    print(db.get_avg_salary("test"))
-    print(db.get_vacancies_with_higher_salary("test"))
-    print(db.get_vacancies_with_keyword("test", "Python"))
+  #  print(db.get_companies("test"))
+  #  print(db.get_all_vacancies("test"))
+  #  print(db.get_avg_salary("test"))
+  #  print(db.get_vacancies_with_higher_salary("test"))
+  #  print(db.get_vacancies_with_keyword("test", "Python"))
 
 
 
