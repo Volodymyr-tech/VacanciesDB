@@ -5,6 +5,20 @@ from dotenv import load_dotenv
 from src.class_connection_to_db import DbConn
 from src.class_api_employers import EmpHH
 from src.class_create_db import CreateDb
+import logging
+from config import LOGS_DIR
+import os
+
+log_file_path = os.path.join(LOGS_DIR, "db_manager.log")
+
+app_logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
+file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(funcName)s %(message)s')
+file_handler.setFormatter(file_formatter)
+app_logger.addHandler(file_handler)
+app_logger.setLevel(logging.DEBUG)
+
+
 
 load_dotenv()
 
@@ -17,6 +31,7 @@ class DBManager:
     ):
         """Функция для сохранения вакансий и работадателей в базу данных."""
         conn = DbConn().connect_to_database(database_name)
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
 
         with conn.cursor() as cur:
             for employer in data_employer:
@@ -56,38 +71,45 @@ class DBManager:
                     ),
                 )
 
+        app_logger.info(f"Записываю данные в таблицы 'employers' и 'vacancies' в БД'{database_name}'")
+
         with conn.cursor() as cur:
             #Удлаение внещнего ключа, чтобы избежать конфликта между типами данных
             cur.execute("""
                 ALTER TABLE vacancies
                 DROP CONSTRAINT IF EXISTS vacancies_employer_id_fkey;
             """)
+            app_logger.info(f"Удаляю Foreign Key в таблице'vacancies' в БД'{database_name}'")
             #меняем varchar на integer
             cur.execute("""
                  ALTER TABLE employers
                  ALTER COLUMN employer_id TYPE INTEGER USING employer_id::INTEGER,
                  ALTER COLUMN open_vacancies TYPE INTEGER USING open_vacancies::INTEGER;
              """)
+            app_logger.info(f"Меняю тип данных в таблице 'employers' в БД'{database_name}'")
 
             # Преобразуем employer_id в INTEGER
             cur.execute("""
                             ALTER TABLE vacancies
                             ALTER COLUMN employer_id TYPE INTEGER USING employer_id::INTEGER;
                         """)
+            app_logger.info(f"Меняю тип данных в таблице 'vacancies' в БД'{database_name}'")
             #Заново создаем внешний ключ
             cur.execute("""
                 ALTER TABLE vacancies
                 ADD CONSTRAINT vacancies_employer_id_fkey FOREIGN KEY (employer_id)
                 REFERENCES employers (employer_id);
             """)
+            app_logger.info(f"Заново создаем внешний ключ в таблице 'vacancies' в БД'{database_name}'")
 
         conn.commit()
         conn.close()
-
+        app_logger.info(f" Контрольный комит и закрытие подключения к БД'{database_name}'")
 
     def get_companies(self, database_name):
 
         conn = DbConn().connect_to_database(database_name)
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
 
         with conn.cursor() as cur:
             # Выполнение SQL-запроса для получения всех работодателей
@@ -97,7 +119,7 @@ class DBManager:
             return results #список кортежей информации о компаниях
 
         conn.close()
-
+        app_logger.info(f"закрытие подключения к БД'{database_name}'")
 
     def get_all_vacancies(self, database_name: str):
         """
@@ -105,7 +127,7 @@ class DBManager:
         зарплаты и ссылки на вакансию.
         """
         conn = DbConn().connect_to_database(database_name)
-
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
         try:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -121,18 +143,19 @@ class DBManager:
                 return results
 
         except psycopg2.Error as e:
-            print(f"Database error: {e}")
+            app_logger.error(f"Database error: {e}")
             return []
         finally:
             if conn:
                 conn.close()
+                app_logger.info(f"Закрытые подключения к БД '{database_name}'")
 
     def get_avg_salary(self, database_name: str):
         """
         Получает среднюю зарплату по всем вакансиям.
         """
         conn = DbConn().connect_to_database(database_name)
-
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
         try:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -144,18 +167,20 @@ class DBManager:
                 return result[0] if result else None  # Возвращаем среднюю зарплату или None, если данных нет
 
         except psycopg2.Error as e:
-            print(f"Database error: {e}")
+            app_logger.error(f"Database error: {e}")
             return None
         finally:
             if conn:
                 conn.close()
+                app_logger.info(f"Закрытые подключения к БД '{database_name}'")
+
 
     def get_vacancies_with_higher_salary(self, database_name: str):
         """
         Получает список всех вакансий, у которых зарплата выше средней по всем вакансиям.
         """
         conn = DbConn().connect_to_database(database_name)
-
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
         try:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -168,11 +193,13 @@ class DBManager:
                 return result  # Возвращает список кортежей (vacancy_name, employer_name, salary, vacancy_url)
 
         except psycopg2.Error as e:
-            print(f"Database error: {e}")
+            app_logger.error(f"Database error: {e}")
             return None
         finally:
             if conn:
                 conn.close()
+                app_logger.info(f"Закрытые подключения к БД '{database_name}'")
+
 
     def get_vacancies_with_keyword(self, database_name: str, keyword: str):
         """
@@ -183,7 +210,7 @@ class DBManager:
         :return: Список вакансий с ключевым словом.
         """
         conn = DbConn().connect_to_database(database_name)
-
+        app_logger.info(f"Успешное  подключение к БД '{database_name}'")
         try:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -196,31 +223,12 @@ class DBManager:
                 return result  # Возвращает список кортежей (vacancy_name, employer_name, salary, vacancy_url)
 
         except psycopg2.Error as e:
-            print(f"Database error: {e}")
+            app_logger.error(f"Database error: {e}")
             return None
         finally:
             if conn:
                 conn.close()
-
-
-if __name__ == "__main__":
-    db = DBManager() # тул для управления бд
-    hh = EmpHH() # to get info
-    created_db = CreateDb()
-    # Загружаем информацию о работодателях
-    employees = hh.get_employees()
-
-    # Загружаем вакансии по работодателям
-    employee_vacancies = hh.load_employees_vacancies()
-
-
-    db.save_data_to_database(employees, employee_vacancies, "Vova_krasavchik")
-
-    print(db.get_companies("Vova_krasavchik"))
-    print(db.get_all_vacancies("Vova_krasavchik"))
-    print(db.get_avg_salary("Vova_krasavchik"))
-    print(db.get_vacancies_with_higher_salary("Vova_krasavchik"))
-    print(db.get_vacancies_with_keyword("Vova_krasavchik", "Python"))
+                app_logger.info(f"Закрытые подключения к БД '{database_name}'")
 
 
 

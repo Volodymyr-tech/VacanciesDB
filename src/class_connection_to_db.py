@@ -1,9 +1,22 @@
 from dotenv import load_dotenv
-
 load_dotenv()
-
 import os
 import psycopg2
+import logging
+from config import LOGS_DIR
+
+log_file_path = os.path.join(LOGS_DIR, "conn_db.log")
+
+app_logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
+file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler.setFormatter(file_formatter)
+app_logger.addHandler(file_handler)
+app_logger.setLevel(logging.DEBUG)
+
+
+
+
 
 class DbConn:
 
@@ -24,11 +37,10 @@ class DbConn:
                 password=self.__password,
                 port=self.__port
             )
-            print("Connector object is done")
-            print(type(conn))
+            app_logger.info(f"Connector object for user {self.__user} is done")
             return conn
         except psycopg2.Error as e:
-            print(f"Error connecting to database: {e}")
+            app_logger.error(f"Error connecting to database: {e}")
             return None
 
 

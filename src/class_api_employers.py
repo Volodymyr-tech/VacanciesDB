@@ -1,5 +1,22 @@
 import time
+import os
+from venv import logger
+
 import requests
+import logging
+
+from config import LOGS_DIR
+
+log_file_path = os.path.join(LOGS_DIR, "api.log")
+
+app_logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
+file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler.setFormatter(file_formatter)
+app_logger.addHandler(file_handler)
+app_logger.setLevel(logging.DEBUG)
+
+
 
 class EmpHH():
     """
@@ -34,7 +51,7 @@ class EmpHH():
         for employer in self.__employers:
             temp_url = f"https://api.hh.ru/employers/{employer}"
             try:
-                response = requests.get(temp_url, self.__headers)
+                response = requests.get(temp_url, headers=self.__headers)
                 response.raise_for_status()
                 employer_data = response.json()
                 filtered_data = {
@@ -46,8 +63,9 @@ class EmpHH():
                     "address": employer_data.get("area", {}).get("name"),
                 }
                 employers_info.append(filtered_data)
-
+                app_logger.info(f'Получены данные о работодателе {employer} с "HH" ')
             except requests.exceptions.RequestException as e:
+                logger.error(f'{e}')
                 print(f"Ошибка при получении данных о работодателе {employer}: {e}")
             time.sleep(0.5)
         return employers_info
@@ -57,15 +75,16 @@ class EmpHH():
         vacancy_info = []
         for employer_id in self.__employers:
             try:
-                response = requests.get(
-                    f"https://api.hh.ru/vacancies/{employer_id}",
+                response = requests.get(self.__url,
                     headers=self.__headers,
                     params={"employer_id": employer_id, **self.__params},
                 )
                 response.raise_for_status()
                 vacancies = response.json().get("items", [])
                 vacancy_info.extend(vacancies)
+                app_logger.info(f'Получены данные о вакансиях работодателя {employer_id} с Api "HH" ')
             except requests.exceptions.RequestException as e:
+                logger.error(f'{e}')
                 print(f"Ошибка при загрузке вакансий работодателя {employer_id}: {e}")
         return vacancy_info
 

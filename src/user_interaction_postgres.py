@@ -48,7 +48,7 @@ class InteractionPostgre:
             print(f"Вакансия: {vacancy[0]}, в компании {vacancy[1]} с зарплатой {vacancy[2]}, ссылка: {vacancy[3]} ")
 
     def get_vacancies_by_keyword(self):
-        user_keyword = input("Введи строку для поиска")
+        user_keyword = input("Введи строку для поиска ")
         res = self.db.get_vacancies_with_keyword(self.keyword, user_keyword)
         for vacancy in res:
             print(f"Вакансия: {vacancy[0]}, в компании {vacancy[1]} с зарплатой {vacancy[2]}, ссылка: {vacancy[3]} ")
