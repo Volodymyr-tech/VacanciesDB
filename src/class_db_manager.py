@@ -2,75 +2,13 @@ import os
 from typing import Any
 import psycopg2
 from dotenv import load_dotenv
+from src.class_connection_to_db import DbConn
+from src.class_api_employers import EmpHH
+from src.class_create_db import CreateDb
 
 load_dotenv()
 
 class DBManager:
-    def __init__(self):
-        self.__host = os.getenv("DB_HOST")
-        self.__user = os.getenv("DB_USER")
-        self.__password = os.getenv("DB_PASSWORD")
-        self.__port = os.getenv('PORT')
-
-    def _connect_to_database(self, database_name: str = "postgres"):
-        """Создает подключение к базе данных."""
-        try:
-            conn = psycopg2.connect(
-                dbname=database_name,
-                host=self.__host,
-                user=self.__user,
-                password=self.__password,
-                port=self.__port
-            )
-            return conn
-        except psycopg2.Error as e:
-            print(f"Error connecting to database: {e}")
-            return None
-
-    def _create_database(self, database_name: str):
-        """Функция для создания базы данных и таблиц."""
-
-        conn = self._connect_to_database("postgres")
-
-        conn.autocommit = True
-        cur = conn.cursor()
-
-        cur.execute(f"DROP DATABASE IF EXISTS {database_name}")
-        cur.execute(f"CREATE DATABASE {database_name}")
-
-        conn.close()
-
-        conn = self._connect_to_database(database_name)
-
-        with conn.cursor() as cur:
-            cur.execute("""
-                            CREATE TABLE employers (
-                                employer_id varchar PRIMARY KEY,
-                                employer_name varchar NOT NULL,
-                                site_url varchar,
-                                alternate_url varchar,
-                                open_vacancies varchar,
-                                address varchar
-                            );
-                        """)
-
-        with conn.cursor() as cur:
-            cur.execute(
-                """
-                CREATE TABLE vacancies (
-                    vacancy_name varchar,
-                    vacancy_url VARCHAR,
-                    salary INTEGER,
-                    requirement VARCHAR,
-                    employer_id varchar REFERENCES employers(employer_id)
-                )
-            """
-            )
-
-        print("Таблицы были созданы успешно")
-        conn.commit()
-        conn.close()
-
 
     def save_data_to_database(self,
             data_employer: list[dict[str, Any]],
@@ -78,7 +16,7 @@ class DBManager:
                               database_name:str
     ):
         """Функция для сохранения вакансий и работадателей в базу данных."""
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         with conn.cursor() as cur:
             for employer in data_employer:
@@ -149,7 +87,7 @@ class DBManager:
 
     def get_companies(self, database_name):
 
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         with conn.cursor() as cur:
             # Выполнение SQL-запроса для получения всех работодателей
@@ -166,7 +104,7 @@ class DBManager:
         Получает список всех вакансий с указанием названия компании, названия вакансии,
         зарплаты и ссылки на вакансию.
         """
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         try:
             with conn.cursor() as cur:
@@ -193,7 +131,7 @@ class DBManager:
         """
         Получает среднюю зарплату по всем вакансиям.
         """
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         try:
             with conn.cursor() as cur:
@@ -216,7 +154,7 @@ class DBManager:
         """
         Получает список всех вакансий, у которых зарплата выше средней по всем вакансиям.
         """
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         try:
             with conn.cursor() as cur:
@@ -244,7 +182,7 @@ class DBManager:
         :param keyword: Ключевое слово для поиска в названии вакансий.
         :return: Список вакансий с ключевым словом.
         """
-        conn = self._connect_to_database(database_name)
+        conn = DbConn().connect_to_database(database_name)
 
         try:
             with conn.cursor() as cur:
@@ -265,24 +203,24 @@ class DBManager:
                 conn.close()
 
 
-#if __name__ == "__main__":
-   # db = DBManager()
-   # hh = HH()
-   # db._connect_to_database()
-  #  db._create_database("test")
+if __name__ == "__main__":
+    db = DBManager() # тул для управления бд
+    hh = EmpHH() # to get info
+    created_db = CreateDb()
     # Загружаем информацию о работодателях
-  #  employees = hh.get_employees()
+    employees = hh.get_employees()
 
     # Загружаем вакансии по работодателям
-  #  employee_vacancies = hh.load_employees_vacancies()
+    employee_vacancies = hh.load_employees_vacancies()
 
-  #  db.save_data_to_database(employees, employee_vacancies, "test")
 
-  #  print(db.get_companies("test"))
-  #  print(db.get_all_vacancies("test"))
-  #  print(db.get_avg_salary("test"))
-  #  print(db.get_vacancies_with_higher_salary("test"))
-  #  print(db.get_vacancies_with_keyword("test", "Python"))
+    db.save_data_to_database(employees, employee_vacancies, "Vova_krasavchik")
+
+    print(db.get_companies("Vova_krasavchik"))
+    print(db.get_all_vacancies("Vova_krasavchik"))
+    print(db.get_avg_salary("Vova_krasavchik"))
+    print(db.get_vacancies_with_higher_salary("Vova_krasavchik"))
+    print(db.get_vacancies_with_keyword("Vova_krasavchik", "Python"))
 
 
 

@@ -1,17 +1,22 @@
-from src.class_api import HH
+from src.class_api_employers import EmpHH
+from src.class_create_db import CreateDb
 from src.class_db_manager import DBManager
+from src.class_connection_to_db import DbConn
 
 
 class InteractionPostgre:
 
     def __init__(self, keyword):
-        self.api = HH()
+        self.api = EmpHH()
+        self.connection = DbConn()
+        self.creator = CreateDb()
         self.db = DBManager()
         self.keyword = keyword
 
     def create_db(self):
-        self.db._connect_to_database()
-        self.db._create_database(self.keyword)
+        self.connection.connect_to_database()
+        self.creator._create_database(self.keyword)
+        self.creator._create_tables(self.keyword)
 
     def get_data_from_api(self):
         """Загружаем вакансии и работодателей"""

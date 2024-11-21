@@ -1,0 +1,82 @@
+[
+  {
+    'id' : '1122462',
+    'name' : 'Бухгалтер',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/1122462',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '9498112',
+    'name' : 'Бизнес/системный-аналитик',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/9498112',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '1664868',
+    'name' : 'Финансовый менеджер',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/1664868',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '2324020',
+    'name' : 'Support Oracle Developer',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/2324020',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '9938436',
+    'name' : 'Программист 1С',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/9938436',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '906557',
+    'name' : 'Специалист МСФО',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/906557',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '2705050',
+    'name' : 'Экономист по управленческому учету',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/2705050',
+    'open_vacancies' : None,
+    'address' : 'Беларусь'
+  },
+  {
+    'id' : '4934',
+    'name' : 'Геодезист, землеустроитель',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/4934',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '3530',
+    'name' : 'HR Manager',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/3530',
+    'open_vacancies' : None,
+    'address' : 'Москва'
+  },
+  {
+    'id' : '4767781',
+    'name' : 'Специалист группы прямых продаж',
+    'site_url' : None,
+    'alternate_url' : 'https://hh.ru/vacancy/4767781',
+    'open_vacancies' : None,
+    'address' : 'Саратов'
+  }
+]

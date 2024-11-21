@@ -5,8 +5,8 @@ from src.user_interaction_postgres import InteractionPostgre
 # Основной цикл программы для взаимодействия с пользователем
 def main():
     print("Данная программа работает с Реляционные БД и Нереляционными БД")
-    user = int(input("Введите '1' для работы с PostgreSQL"
-                 "или введите '2' для работы с Нереляционной БД "))
+    user = int(input("Для работы с Postgres введите - '1',"
+                     "Для работы с JSON введите - '2'"))
     if user == 2:
         ui = UserInteraction()
 
