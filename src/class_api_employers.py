@@ -6,24 +6,25 @@ class EmpHH():
     Класс для работы с API HeadHunter
     """
     def __init__(self):
-        self.__url = "https://api.hh.ru/employers"
+        self.__url = "https://api.hh.ru/vacancies"
         self.__headers = {"User-Agent": "HH-User-Agent"}
-        self.__params = {"employer_id": "", "page": 0, "per_page": 10, "only_with_salary": True}
+        self.__params = {"text": "", "page": 0, "per_page": 10}
+        self.__vacancies = []
         self.__employers = (
-            6591,
-            3731347,
-            4751605,
+            10636999,
+            1122462,
+            9498112,
             2855463,
-            4624254,
+            64174,
             4949,
-            9301808,
-            2367681,
-            1579449,
-            32918,
-            9599878,
+            1664868,
             2324020,
-            3748571,
-            9498120,
+            4596113,
+            9938436,
+            906557,
+            2705050,
+            4934,
+            3530,
             4767781,
         )
 
@@ -31,7 +32,7 @@ class EmpHH():
         """Загрузка информации о работодателе"""
         employers_info = []
         for employer in self.__employers:
-            temp_url = f"{self.__url}/{employer}"
+            temp_url = f"https://api.hh.ru/employers/{employer}"
             try:
                 response = requests.get(temp_url, self.__headers)
                 response.raise_for_status()
@@ -74,5 +75,9 @@ if __name__ == "__main__":
     data = EmpHH()
     emp = data.get_employees()
     vac = data.load_employees_vacancies()
-    print(emp)
-    print(vac)
+    for e in emp:
+        print(e)
+
+
+    for v in vac:
+        print(v)
