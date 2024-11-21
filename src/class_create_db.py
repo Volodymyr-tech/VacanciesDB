@@ -89,10 +89,3 @@ class CreateDb:
             conn.close()
             app_logger.info(f"Подключение к '{database_name}' закрыто ")
 
-
-if __name__ == "__main__":
-
-    database_name = "db_employers"
-    db_creator = CreateDb()
-    db_creator._create_database(database_name)  # Вызываем метод для создания базы
-    db_creator._create_tables(database_name)

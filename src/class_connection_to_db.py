@@ -37,12 +37,3 @@ class DbConn:
         except psycopg2.Error as e:
             app_logger.error(f"Error connecting to database: {e}")
             return None
-
-
-# if __name__ == "__main__":
-#   db = DbConn()
-#  conn = db.connect_to_database('db_employers')
-#  if conn:
-#      print("Успешное подключение!")
-#  else:
-#     print("Ошибка подключения!")

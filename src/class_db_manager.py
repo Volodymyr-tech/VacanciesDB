@@ -110,7 +110,7 @@ class DBManager:
         app_logger.info(f" Контрольный комит и закрытие подключения к БД'{database_name}'")
 
     def get_companies(self, database_name):
-
+        '''Получаем список компаний с БД'''
         conn = DbConn().connect_to_database(database_name)
         app_logger.info(f"Успешное  подключение к БД '{database_name}'")
 
