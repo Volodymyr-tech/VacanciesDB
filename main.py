@@ -4,8 +4,7 @@ from src.user_interaction_postgres import InteractionPostgre
 
 # Основной цикл программы для взаимодействия с пользователем
 def main():
-    user = int(input("Для работы с PostgreSQL введите -'1',"
-                     "Для работы с JSON введите -'2'  "))
+    user = int(input("Для работы с PostgreSQL введите -'1'," "Для работы с JSON введите -'2'  "))
     if user == 2:
         ui = UserInteraction()
 

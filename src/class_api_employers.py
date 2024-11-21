@@ -1,9 +1,9 @@
-import time
+import logging
 import os
+import time
 from venv import logger
 
 import requests
-import logging
 
 from config import LOGS_DIR
 
@@ -11,17 +11,17 @@ log_file_path = os.path.join(LOGS_DIR, "api.log")
 
 app_logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
-file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 app_logger.addHandler(file_handler)
 app_logger.setLevel(logging.DEBUG)
 
 
-
-class EmpHH():
+class EmpHH:
     """
     Класс для работы с API HeadHunter
     """
+
     def __init__(self):
         self.__url = "https://api.hh.ru/vacancies"
         self.__headers = {"User-Agent": "HH-User-Agent"}
@@ -65,7 +65,7 @@ class EmpHH():
                 employers_info.append(filtered_data)
                 app_logger.info(f'Получены данные о работодателе {employer} с "HH" ')
             except requests.exceptions.RequestException as e:
-                logger.error(f'{e}')
+                logger.error(f"{e}")
                 print(f"Ошибка при получении данных о работодателе {employer}: {e}")
             time.sleep(0.5)
         return employers_info
@@ -75,7 +75,8 @@ class EmpHH():
         vacancy_info = []
         for employer_id in self.__employers:
             try:
-                response = requests.get(self.__url,
+                response = requests.get(
+                    self.__url,
                     headers=self.__headers,
                     params={"employer_id": employer_id, **self.__params},
                 )
@@ -84,10 +85,9 @@ class EmpHH():
                 vacancy_info.extend(vacancies)
                 app_logger.info(f'Получены данные о вакансиях работодателя {employer_id} с Api "HH" ')
             except requests.exceptions.RequestException as e:
-                logger.error(f'{e}')
+                logger.error(f"{e}")
                 print(f"Ошибка при загрузке вакансий работодателя {employer_id}: {e}")
         return vacancy_info
-
 
 
 if __name__ == "__main__":
@@ -96,7 +96,6 @@ if __name__ == "__main__":
     vac = data.load_employees_vacancies()
     for e in emp:
         print(e)
-
 
     for v in vac:
         print(v)

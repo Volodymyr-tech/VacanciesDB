@@ -1,7 +1,7 @@
 from src.class_api_employers import EmpHH
+from src.class_connection_to_db import DbConn
 from src.class_create_db import CreateDb
 from src.class_db_manager import DBManager
-from src.class_connection_to_db import DbConn
 
 
 class InteractionPostgre:
@@ -36,7 +36,9 @@ class InteractionPostgre:
     def get_all_vacancies(self):
         res = self.db.get_all_vacancies(self.keyword)
         for vacancy in res:
-            print(f"Работодатель: {vacancy[0]}, открытая вакансия: {vacancy[1]} с зарплатой {vacancy[2]}, ссылка: {vacancy[3]} ")
+            print(
+                f"Работодатель: {vacancy[0]}, открытая вакансия: {vacancy[1]} с зарплатой {vacancy[2]}, ссылка: {vacancy[3]} "
+            )
 
     def get_avg_salary(self):
         res = self.db.get_avg_salary(self.keyword)

@@ -1,17 +1,19 @@
-import time
-from src.class_connection_to_db import DbConn
 import logging
-from config import LOGS_DIR
 import os
+import time
+
+from config import LOGS_DIR
+from src.class_connection_to_db import DbConn
 
 log_file_path = os.path.join(LOGS_DIR, "create_db.log")
 
 app_logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
-file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 app_logger.addHandler(file_handler)
 app_logger.setLevel(logging.DEBUG)
+
 
 class CreateDb:
 
@@ -54,7 +56,8 @@ class CreateDb:
         try:
             # Создание таблиц
             with conn.cursor() as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     CREATE TABLE employers (
                         employer_id varchar PRIMARY KEY,
                         employer_name varchar NOT NULL,
@@ -63,8 +66,10 @@ class CreateDb:
                         open_vacancies varchar,
                         address varchar
                     );
-                """)
-                cur.execute("""
+                """
+                )
+                cur.execute(
+                    """
                     CREATE TABLE vacancies (
                         vacancy_name varchar,
                         vacancy_url VARCHAR,
@@ -72,7 +77,8 @@ class CreateDb:
                         requirement VARCHAR,
                         employer_id varchar REFERENCES employers(employer_id)
                     );
-                """)
+                """
+                )
             conn.commit()
             app_logger.info(f"Созданы таблицы в БД '{database_name}'")
             print("Таблицы успешно созданы.")
@@ -82,6 +88,7 @@ class CreateDb:
         finally:
             conn.close()
             app_logger.info(f"Подключение к '{database_name}' закрыто ")
+
 
 if __name__ == "__main__":
 

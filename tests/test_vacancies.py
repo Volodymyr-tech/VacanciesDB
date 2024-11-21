@@ -1,6 +1,3 @@
-from src.class_vacancies import Vacancies
-
-
 def data_1():
     data = {
         "id": "110737918",
