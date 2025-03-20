@@ -1,68 +1,73 @@
-# Вакансии HeadHunter с интеграцией PostgreSQL
-Этот проект предоставляет инструмент для работы с вакансиями, загружаемыми с сайта HeadHunter, с возможностью сохранения данных в базе данных PostgreSQL или в JSON-файл. Подходит для аналитики вакансий и работодателей.
-## Функционал
-### 1. API HeadHunter
-- **Классы:**
-  - `HH` ([class_api.py](./class_api.py)): Работа с API HeadHunter, получение вакансий по ключевому слову и информации о работодателях.
-  - `EmpHH` ([class_api_employers.py](./class_api_employers.py)): Альтернативный класс для работы с API с логированием операций.
+# HeadHunter Vacancies with PostgreSQL Integration
 
-- **Методы:**
-  - Загрузка вакансий по ключевому слову.
-  - Получение информации о работодателях.
-  - Загрузка вакансий, связанных с конкретными работодателями.
+This project is a tool for working with job vacancies collected from the HeadHunter website, with the ability to save data either to a PostgreSQL database or a JSON file. It is useful for analyzing vacancies and employers.
 
----
+## Features
 
-### 2. Сохранение данных
-- **Класс:** `JsonSaver` ([class_json_saver.py](./class_json_saver.py))
-  - Сохраняет вакансии в JSON-файл.
-  - Позволяет добавлять, удалять и фильтровать вакансии.
-  - Функция сортировки по зарплате.
+### 1. HeadHunter API
+- **Classes:**
+  - `HH` ([class_api.py](./class_api.py)): Handles interaction with the HeadHunter API, fetching job listings by keyword and retrieving employer information.
+  - `EmpHH` ([class_api_employers.py](./class_api_employers.py)): Alternative class for working with the API, includes logging.
 
-- **Класс:** `DBManager` ([class_db_manager.py](./class_db_manager.py))
-  - Сохраняет данные о вакансиях и работодателях в PostgreSQL.
-  - Предоставляет методы для работы с данными из базы:
-    - Получение списка компаний с количеством вакансий.
-    - Получение всех вакансий с информацией о работодателе и зарплате.
-    - Средняя зарплата по вакансиям.
-    - Вакансии с зарплатой выше среднего.
-    - Поиск вакансий по ключевому слову.
+- **Methods:**
+  - Load vacancies by keyword.
+  - Retrieve employer information.
+  - Load vacancies related to specific employers.
 
 ---
 
-### 3. Работа с базой данных
-- **Класс:** `CreateDb` ([class_create_db.py](./class_create_db.py))
-  - Создаёт базу данных и таблицы `employers` и `vacancies`.
+### 2. Data Storage
+- **Class:** `JsonSaver` ([class_json_saver.py](./class_json_saver.py))
+  - Saves vacancies to a JSON file.
+  - Supports adding, deleting, and filtering vacancies.
+  - Sorts vacancies by salary.
 
-- **Класс:** `DbConn` ([class_connection_to_db.py](./class_connection_to_db.py))
-  - Управляет подключением к PostgreSQL через переменные окружения.
-
----
-
-### 4. Взаимодействие с пользователем
-- **Класс:** `UserInteraction` ([user_interaction.py](./user_interaction.py))
-  - Работа с JSON-данными:
-    - Поиск вакансий по ключевому слову.
-    - Сортировка и фильтрация вакансий.
-    - Удаление вакансий по URL.
-
-- **Класс:** `InteractionPostgre` ([user_interaction_postgres.py](./user_interaction_postgres.py))
-  - Работа с базой данных:
-    - Создание базы и таблиц.
-    - Сохранение данных из API.
-    - Запросы на получение, сортировку и фильтрацию вакансий.
+- **Class:** `DBManager` ([class_db_manager.py](./class_db_manager.py))
+  - Saves vacancy and employer data to PostgreSQL.
+  - Provides methods to:
+    - Get a list of companies with vacancy counts.
+    - Retrieve all vacancies with employer and salary info.
+    - Calculate average salary.
+    - Get vacancies with salaries above the average.
+    - Search vacancies by keyword.
 
 ---
 
-## Установка и настройка
+### 3. Database Management
+- **Class:** `CreateDb` ([class_create_db.py](./class_create_db.py))
+  - Creates the database and tables `employers` and `vacancies`.
 
-### Требования
+- **Class:** `DbConn` ([class_connection_to_db.py](./class_connection_to_db.py))
+  - Manages PostgreSQL connections using environment variables.
+
+---
+
+### 4. User Interaction
+- **Class:** `UserInteraction` ([user_interaction.py](./user_interaction.py))
+  - Interacts with JSON data:
+    - Search vacancies by keyword.
+    - Sort and filter vacancies.
+    - Delete vacancies by URL.
+
+- **Class:** `InteractionPostgre` ([user_interaction_postgres.py](./user_interaction_postgres.py))
+  - Interacts with PostgreSQL:
+    - Create database and tables.
+    - Save data from API.
+    - Query, sort, and filter vacancies.
+
+---
+
+## Installation and Setup
+
+### Requirements
 - Python 3.9+
 - PostgreSQL
-- Установленные зависимости из `requirements.txt`
+- Dependencies managed with **Poetry**
 
-### Установка
-1. Клонируйте репозиторий:
-   ```bash
+### Installation
+1. Clone the repository:
    git clone <URL>
    cd <REPO_NAME>
+
+## Install dependencies:
+poetry install
